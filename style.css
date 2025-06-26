@@ -43,3 +43,15 @@ button {
 button:hover {
   background-color: #7c3ab3;
 }
+input {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  font-size: 1rem;
+}
+
+h3 {
+  margin-top: 1.5rem;
+  color: #4d2c91;
+}
