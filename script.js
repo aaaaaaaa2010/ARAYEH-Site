@@ -25,3 +25,22 @@ function saveMemory() {
   document.getElementById("memoryOutput").textContent =
     "✅ ذخیره شد: " + input;
 }
+// دکمه ابزار اطلاعات عمومی
+const infoButton = document.createElement("button");
+infoButton.textContent = "📦 اطلاعات عمومی";
+infoButton.onclick = () => {
+  toolContent.innerHTML = `
+    <h3>📦 اطلاعات عمومی پروژه</h3>
+    <input id="infoInput" placeholder="مثلاً نام پروژه، هدف، مدل..." />
+    <button onclick="saveInfo()">ذخیره</button>
+    <p id="infoOutput"></p>
+  `;
+};
+toolList.appendChild(infoButton);
+
+function saveInfo() {
+  const info = document.getElementById("infoInput").value;
+  localStorage.setItem("publicInfo", info);
+  document.getElementById("infoOutput").textContent =
+    "✅ ذخیره شد: " + info;
+}
