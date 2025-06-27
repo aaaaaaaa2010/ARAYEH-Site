@@ -52,13 +52,16 @@ window.onload = function () {
   document.getElementById("lang-save-btn").addEventListener("click", () => {
   langPopup.classList.remove("show");
   setTimeout(() => {
-  langPopup.classList.add("hidden");
-}, 300);
- document.getElementById("lang-close-btn").addEventListener("click", () => {
+    langPopup.classList.add("hidden");
+  }, 300);
+});
+
+document.getElementById("lang-close-btn").addEventListener("click", () => {
   langPopup.classList.remove("show");
   setTimeout(() => {
-  langPopup.classList.add("hidden");
-}, 300);
+    langPopup.classList.add("hidden");
+  }, 300);
+});
   // دکمه خانه
   document.getElementById("home-link").addEventListener("click", (e) => {
     e.preventDefault();
