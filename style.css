@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap');
+لف@import url('https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap');
 h1 {
   color: #4CAF50;
   font-size: 36px;
@@ -151,3 +151,32 @@ button:hover {
   color: white;
   cursor: pointer;
 }
+#lang-popup {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  z-index: 999;
+  text-align: center;
+  position: relative; /* این خط اضافه شه که ضربدر توش قرار بگیره */
+}
+
+#lang-close-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 1.2em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #555;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+#lang-close-btn:hover {
+  color: #f44336;
+  }
