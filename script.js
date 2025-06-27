@@ -36,7 +36,21 @@ window.onload = function () {
   langBtn.addEventListener("click", () => {
     alert("در نسخه بعدی، صفحه انتخاب زبان با پرچم‌ها اضافه می‌شه 🌍😉");
   });
+  const langPopup = document.getElementById("lang-popup");
 
+  langBtn.addEventListener("click", () => {
+  langPopup.classList.toggle("hidden");
+  });
+
+  document.querySelectorAll(".flag-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    alert("زبان انتخاب شد: " + btn.textContent + " 🌍");
+  });
+});
+
+  document.getElementById("lang-save-btn").addEventListener("click", () => {
+  langPopup.classList.add("hidden");
+});
   // دکمه خانه
   document.getElementById("home-link").addEventListener("click", (e) => {
     e.preventDefault();
