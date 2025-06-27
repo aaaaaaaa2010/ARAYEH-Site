@@ -36,3 +36,30 @@ window.onload = function () {
     alert("در نسخه بعدی، صفحه انتخاب زبان با پرچم‌ها اضافه می‌شه 🌍😉");
   });
 };
+// دکمه خانه
+document.querySelector("a[href='#']").addEventListener("click", (e) => {
+  e.preventDefault();
+  alert("فعلاً تو صفحه خانه هستی 🏠");
+});
+
+// دکمه ابزارها
+document.querySelectorAll("a[href='#']")[1].addEventListener("click", (e) => {
+  e.preventDefault();
+  document.getElementById("tool-list").scrollIntoView({ behavior: "smooth" });
+});
+
+// دکمه درباره ما
+document.querySelectorAll("a[href='#']")[2].addEventListener("click", (e) => {
+  e.preventDefault();
+  alert("در نسخه بعدی، بخش درباره ما اضافه خواهد شد 💬😉");
+});
+
+// دکمه شروع آزمایشی رایگان
+document.querySelectorAll("button")[0].addEventListener("click", () => {
+  alert("آزمایش رایگان هنوز فعال نشده 😅 ولی تو اولین نفری هستی که دعوت می‌شی!");
+});
+
+// دکمه اتصال به هوش مصنوعی
+document.querySelectorAll("button")[1].addEventListener("click", () => {
+  alert("در حال اتصال به هوش مصنوعی... آماده‌باش برای جادو! 🤖💫");
+});
