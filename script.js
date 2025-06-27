@@ -32,16 +32,15 @@ window.onload = function () {
   });
 
   // دکمه زبان
-  const langBtn = document.getElementById("lang-btn");
-  langBtn.addEventListener("click", () => {
-    alert("در نسخه بعدی، صفحه انتخاب زبان با پرچم‌ها اضافه می‌شه 🌍😉");
-  });
+  const langBtn = document.getElementById("lang-btn"); 
   const langPopup = document.getElementById("lang-popup");
 
-  langPopup.classList.remove("hidden");  // نمایش اولیه
+  langBtn.addEventListener("click", () => {
+  langPopup.classList.remove("hidden");  // نمایش
   setTimeout(() => {
-  langPopup.classList.add("show");     // فعال کردن انیمیشن
+    langPopup.classList.add("show");     // فعال کردن انیمیشن
   }, 10);
+});
 
   document.querySelectorAll(".flag-btn").forEach(btn => {
   btn.addEventListener("click", () => {
