@@ -81,6 +81,3 @@ window.onload = function () {
   alert("در حال اتصال به هوش مصنوعی... آماده‌باش برای جادو! 🤖💫");
   });
 };
-document.getElementById("lang-close-btn").addEventListener("click", () => {
-  langPopup.classList.add("hidden");
-});
