@@ -51,6 +51,9 @@ window.onload = function () {
   document.getElementById("lang-save-btn").addEventListener("click", () => {
   langPopup.classList.add("hidden");
 });
+ document.getElementById("lang-close-btn").addEventListener("click", () => {
+  langPopup.classList.add("hidden");
+});
   // دکمه خانه
   document.getElementById("home-link").addEventListener("click", (e) => {
     e.preventDefault();
