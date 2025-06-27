@@ -31,6 +31,7 @@ window.onload = function () {
     toolList.appendChild(button);
   });
 
+  // دکمه زبان
   const langBtn = document.getElementById("lang-btn");
   langBtn.addEventListener("click", () => {
     alert("در نسخه بعدی، صفحه انتخاب زبان با پرچم‌ها اضافه می‌شه 🌍😉");
@@ -54,7 +55,7 @@ window.onload = function () {
     alert("بخش درباره ما به‌زودی اضافه می‌شه 💬");
   });
 
-  // دکمه شروع آزمایشی رایگان
+  // دکمه شروع آزمایشی
   document.querySelectorAll("button")[1].addEventListener("click", () => {
     alert("آزمایش رایگان هنوز فعال نشده 😅 ولی تو اولین نفری هستی که دعوت می‌شی!");
   });
