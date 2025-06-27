@@ -38,9 +38,10 @@ window.onload = function () {
   });
   const langPopup = document.getElementById("lang-popup");
 
-  langBtn.addEventListener("click", () => {
-  langPopup.classList.toggle("hidden");
-  });
+  langPopup.classList.remove("hidden");  // نمایش اولیه
+  setTimeout(() => {
+  langPopup.classList.add("show");     // فعال کردن انیمیشن
+  }, 10);
 
   document.querySelectorAll(".flag-btn").forEach(btn => {
   btn.addEventListener("click", () => {
@@ -49,11 +50,15 @@ window.onload = function () {
 });
 
   document.getElementById("lang-save-btn").addEventListener("click", () => {
+  langPopup.classList.remove("show");
+  setTimeout(() => {
   langPopup.classList.add("hidden");
-});
+}, 300);
  document.getElementById("lang-close-btn").addEventListener("click", () => {
+  langPopup.classList.remove("show");
+  setTimeout(() => {
   langPopup.classList.add("hidden");
-});
+}, 300);
   // دکمه خانه
   document.getElementById("home-link").addEventListener("click", (e) => {
     e.preventDefault();
