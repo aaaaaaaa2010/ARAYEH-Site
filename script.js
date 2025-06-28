@@ -1,5 +1,21 @@
+let selectedLang = localStorage.getItem("language") || "fa";
+
 window.onload = function () {
-  let selectedLang = null;
+
+  function loadLanguage(langCode) {
+    fetch("lang.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const langData = data[langCode];
+        if (!langData) return;
+
+        document.getElementById("main-title").textContent = langData.mainTitle;
+        document.getElementById("tools-title").textContent = langData.toolsTitle;
+        document.getElementById("start-btn").textContent = langData.startBtn;
+        document.getElementById("about-link").textContent = langData.aboutLink;
+      });
+  }
+
   alert("به سایت آرایه خوش اومدی! 🌸");
 
   const tools = [
@@ -37,38 +53,41 @@ window.onload = function () {
   const langPopup = document.getElementById("lang-popup");
 
   langBtn.addEventListener("click", () => {
-  langPopup.classList.remove("hidden");  // نمایش
-  setTimeout(() => {
-    langPopup.classList.add("show");     // فعال کردن انیمیشن
-  }, 10);
-});
+    langPopup.classList.remove("hidden");
+    setTimeout(() => {
+      langPopup.classList.add("show");
+    }, 10);
+  });
 
   document.querySelectorAll(".flag-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    selectedLang = btn.textContent.trim(); // ذخیره زبان انتخابی
-    alert("زبان انتخاب شد: " + selectedLang + " 🌍");
+    btn.addEventListener("click", () => {
+      selectedLang = btn.textContent.trim();
+      alert("زبان انتخاب شد: " + selectedLang + " 🌍");
+    });
   });
-});
 
   document.getElementById("lang-save-btn").addEventListener("click", () => {
-  if (selectedLang) {
-    alert("زبان ذخیره شد: " + selectedLang + " ✅");
-  } else {
-    alert("اول یه زبان انتخاب کن آجی 😅");
-  }
+    if (selectedLang) {
+      localStorage.setItem("language", selectedLang);
+      loadLanguage(selectedLang);
+      alert("زبان ذخیره شد: " + selectedLang + " ✅");
+    } else {
+      alert("اول یه زبان انتخاب کن آجی 😅");
+    }
 
-  langPopup.classList.remove("show");
-  setTimeout(() => {
-    langPopup.classList.add("hidden");
-  }, 300);
-});
+    langPopup.classList.remove("show");
+    setTimeout(() => {
+      langPopup.classList.add("hidden");
+    }, 300);
+  });
 
-document.getElementById("lang-close-btn").addEventListener("click", () => {
-  langPopup.classList.remove("show");
-  setTimeout(() => {
-    langPopup.classList.add("hidden");
-  }, 300);
-});
+  document.getElementById("lang-close-btn").addEventListener("click", () => {
+    langPopup.classList.remove("show");
+    setTimeout(() => {
+      langPopup.classList.add("hidden");
+    }, 300);
+  });
+
   // دکمه خانه
   document.getElementById("home-link").addEventListener("click", (e) => {
     e.preventDefault();
@@ -89,10 +108,13 @@ document.getElementById("lang-close-btn").addEventListener("click", () => {
 
   // دکمه شروع آزمایشی
   document.getElementById("start-btn").addEventListener("click", () => {
-  alert("آزمایش رایگان هنوز فعال نشده 😅 ولی تو اولین نفری هستی که دعوت می‌شی!");
+    alert("آزمایش رایگان هنوز فعال نشده 😅 ولی تو اولین نفری هستی که دعوت می‌شی!");
   });
 
   document.getElementById("ai-btn").addEventListener("click", () => {
-  alert("در حال اتصال به هوش مصنوعی... آماده‌باش برای جادو! 🤖💫");
+    alert("در حال اتصال به هوش مصنوعی... آماده‌باش برای جادو! 🤖💫");
   });
+
+  // 🟢 لود زبان ذخیره شده
+  loadLanguage(selectedLang);
 };
