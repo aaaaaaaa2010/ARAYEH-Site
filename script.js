@@ -15,6 +15,62 @@ const translations = {
     connectAI: "اتصال به هوش مصنوعی",
     trialNote: "نسخه آزمایشی روی InfinityFree"
   },
+  ja: {
+    mainTitle: "Arayehへようこそ！",
+    toolsTitle: "私たちのツール",
+    startBtn: "無料トライアルを開始",
+    aboutLink: "私たちについて",
+    homeLink: "ホーム",
+    toolsLink: "ツール",
+    changeLang: "言語",
+    selectLang: "言語を選択してください",
+    saveAndContinue: "保存して続行",
+    welcomeMsg: "AIモデルを構築・活用するためのプラットフォームへようこそ",
+    connectAI: "AIに接続",
+    trialNote: "InfinityFreeの試用版"
+  }, 
+  zh: {
+    mainTitle: "欢迎来到Arayeh！",
+    toolsTitle: "我们的工具",
+    startBtn: "开始免费试用",
+    aboutLink: "关于我们",
+    homeLink: "首页",
+    toolsLink: "工具",
+    changeLang: "语言",
+    selectLang: "请选择语言",
+    saveAndContinue: "保存并继续",
+    welcomeMsg: "欢迎使用我们用于构建和部署AI模型的平台",
+    connectAI: "连接人工智能",
+    trialNote: "InfinityFree 上的试用版"
+  },
+  es: {
+    mainTitle: "¡Bienvenido a Arayeh!",
+    toolsTitle: "Nuestras Herramientas",
+    startBtn: "Comenzar prueba gratuita",
+    aboutLink: "Sobre nosotros",
+    homeLink: "Inicio",
+    toolsLink: "Herramientas",
+    changeLang: "Idioma",
+    selectLang: "Elige tu idioma",
+    saveAndContinue: "Guardar y continuar",
+    welcomeMsg: "Bienvenido a nuestra plataforma para diseñar y usar modelos de inteligencia artificial",
+    connectAI: "Conectar con IA",
+    trialNote: "Versión de prueba alojada en InfinityFree"
+  },
+  fr: {
+    mainTitle: "Bienvenue chez Arayeh!",
+    toolsTitle: "Nos Outils",
+    startBtn: "Commencer l'essai gratuit",
+    aboutLink: "À propos",
+    homeLink: "Accueil",
+    toolsLink: "Outils",
+    changeLang: "Langue",
+    selectLang: "Choisissez votre langue",
+    saveAndContinue: "Enregistrer et continuer",
+    welcomeMsg: "Bienvenue sur notre plateforme de conception et de déploiement de l’IA",
+    connectAI: "Se connecter à l'IA",
+    trialNote: "Version expérimentale hébergée sur InfinityFree"
+  },
   en: {
     mainTitle: "Welcome to Arayeh!",
     toolsTitle: "Our Tools",
@@ -28,7 +84,7 @@ const translations = {
     welcomeMsg: "Welcome to our platform for designing and deploying AI models",
     connectAI: "Connect to AI",
     trialNote: "Experimental version on InfinityFree"
-  }
+  }, 
   // زبان‌های دیگه رو اگه خواستی اضافه می‌کنیم
 };
 
@@ -72,7 +128,7 @@ window.addEventListener("DOMContentLoaded", () => {
     { name: "مدیریت پروژه", description: "این ابزار بهت کمک می‌کنه پروژه‌هاتو ساختاریافته پیش ببری." },
     { name: "مولد ایده", description: "بهت ایده‌های نو برای محتوا و پروژه می‌ده." },
     { name: "بررسی متن", description: "متن‌هاتو از نظر نگارشی و حرفه‌ای بودن بررسی می‌کنه." }
-  ];
+  };
 
   const toolList = document.getElementById("tool-list");
   const toolContent = document.getElementById("tool-content");
