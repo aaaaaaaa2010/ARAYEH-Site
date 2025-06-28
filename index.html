@@ -8,36 +8,39 @@
 </head>
 <body>
 
-  <h1>به سایت آرایه خوش آمدی!</h1>
+  <!-- تگ‌هایی که با ترجمه پر می‌شن -->
+  <h1 id="main-title"></h1>
   <p>نسخه آزمایشی روی InfinityFree</p>
 
   <!-- نوار بالا -->
   <nav>
-  <ul>
-    <li><a href="#" id="home-link">خانه</a></li>
-    <li><a href="#" id="tools-link">ابزارها</a></li>
-    <li><a href="#" id="about-link">درباره ما</a></li>
-    <li><button id="lang-btn">🌐 زبان</button></li>
-  </ul>
+    <ul>
+      <li><a href="#" id="home-link">خانه</a></li>
+      <li><a href="#" id="tools-link">ابزارها</a></li>
+      <li><a href="#" id="about-link"></a></li>
+      <li><button id="lang-btn">زبان</button></li>
+    </ul>
   </nav>
-<!-- منوی انتخاب زبان -->
-<div id="lang-popup" class="hidden"> 
-<button id="lang-close-btn">×</button>
-  <h3>زبان مورد نظر رو انتخاب کن</h3>
-  <div class="flags">
-    <button class="flag-btn" style="--i: 1">🇮🇷 فارسی</button>
-    <button class="flag-btn" style="--i: 2">🇬🇧 English</button>
-    <button class="flag-btn" style="--i: 3">🇸🇦 العربية</button>
-    <button class="flag-btn" style="--i: 4">🇫🇷 Français</button>
-    <button class="flag-btn" style="--i: 5">🇪🇸 Español</button>
+
+  <!-- منوی انتخاب زبان -->
+  <div id="lang-popup" class="hidden">
+    <button id="lang-close-btn">×</button>
+    <h3>زبان مورد نظر رو انتخاب کن</h3>
+    <div class="flags">
+      <button class="flag-btn" style="--i: 1">فارسی</button>
+      <button class="flag-btn" style="--i: 2">English</button>
+      <button class="flag-btn" style="--i: 3">العربية</button>
+      <button class="flag-btn" style="--i: 4">Français</button>
+      <button class="flag-btn" style="--i: 5">Español</button>
+    </div>
+    <button id="lang-save-btn">ذخیره و ادامه</button>
   </div>
-  <button id="lang-save-btn">✅ ذخیره و ادامه</button>
-</div>
+
   <!-- بخش معرفی -->
   <header>
-    <h2>شفاف‌سازی پروژه‌ی هوش مصنوعی شما بدون دردسر</h2>
-    <p>یه پلتفرم برای نظم دادن، ساده‌سازی، و شکل دادن به ایده‌هات</p>
-    <button id="start-btn">شروع آزمایشی رایگان</button>
+    <h2 id="tools-title"></h2>
+    <p>به پلتفرم ما برای تنظیم، ساخت، و استفاده از مدل‌های هوش مصنوعی خوش آمدید</p>
+    <button id="start-btn"></button>
     <button id="ai-btn">اتصال به هوش مصنوعی</button>
   </header>
 
