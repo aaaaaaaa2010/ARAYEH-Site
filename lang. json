@@ -16,5 +16,29 @@
     "toolsTitle": "أدواتنا",
     "startBtn": "ابدأ التجربة",
     "aboutLink": "من نحن"
+  },
+  "fr": {
+    "mainTitle": "Bienvenue chez Arayeh!",
+    "toolsTitle": "Nos Outils",
+    "startBtn": "Commencer l'essai gratuit",
+    "aboutLink": "À propos de nous"
+  },
+  "es": {
+    "mainTitle": "¡Bienvenido a Arayeh!",
+    "toolsTitle": "Nuestras Herramientas",
+    "startBtn": "Comenzar prueba gratuita",
+    "aboutLink": "Sobre nosotros"
+  },
+  "zh": {
+    "mainTitle": "欢迎来到Arayeh！",
+    "toolsTitle": "我们的工具",
+    "startBtn": "开始免费试用",
+    "aboutLink": "关于我们"
+  },
+  "ja": {
+    "mainTitle": "Arayehへようこそ！",
+    "toolsTitle": "私たちのツール",
+    "startBtn": "無料トライアルを開始",
+    "aboutLink": "私たちについて"
   }
 }
