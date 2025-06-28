@@ -1,22 +1,5 @@
 let currentLang = localStorage.getItem("selectedLanguage") || "fa";
 
-// 📦 داده ابزارها
-const tools = [
-  {
-    name: "مدیریت پروژه",
-    description: "این ابزار بهت کمک می‌کنه پروژه‌هاتو ساختاریافته و مرحله‌به‌مرحله پیش ببری."
-  },
-  {
-    name: "مولد ایده",
-    description: "با استفاده از الگوریتم‌های خلاق، بهت ایده‌های نو برای کسب‌وکار یا محتوا می‌ده."
-  },
-  {
-    name: "بررسی متن",
-    description: "متن‌هاتو از نظر نگارشی، لحن یا حرفه‌ای بودن بررسی می‌کنه."
-  }
-];
-
-// 🧠 تابع لود ترجمه
 function loadLanguage(lang) {
   fetch("lang/lang.json")
     .then(res => res.json())
@@ -31,13 +14,10 @@ function loadLanguage(lang) {
     });
 }
 
-// 📌 پس از بارگذاری صفحه:
 window.addEventListener("DOMContentLoaded", () => {
-  // لود ترجمه ذخیره‌شده
   loadLanguage(currentLang);
 
-  // دکمه زبان
-  const langBtn = document.getElementById("lang-btn"); 
+  const langBtn = document.getElementById("lang-btn");
   const langPopup = document.getElementById("lang-popup");
 
   langBtn.addEventListener("click", () => {
@@ -59,11 +39,28 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   document.getElementById("lang-save-btn").addEventListener("click", () => {
+    const selectedLang = localStorage.getItem("selectedLanguage") || "fa";
+    loadLanguage(selectedLang);
+
     langPopup.classList.remove("show");
     setTimeout(() => langPopup.classList.add("hidden"), 300);
   });
 
-  // ابزارها
+  const tools = [
+    {
+      name: "مدیریت پروژه",
+      description: "این ابزار بهت کمک می‌کنه پروژه‌هاتو ساختاریافته و مرحله‌به‌مرحله پیش ببری."
+    },
+    {
+      name: "مولد ایده",
+      description: "با استفاده از الگوریتم‌های خلاق، بهت ایده‌های نو برای کسب‌وکار یا محتوا می‌ده."
+    },
+    {
+      name: "بررسی متن",
+      description: "متن‌هاتو از نظر نگارشی، لحن یا حرفه‌ای بودن بررسی می‌کنه."
+    }
+  ];
+
   const toolList = document.getElementById("tool-list");
   const toolContent = document.getElementById("tool-content");
 
@@ -79,32 +76,26 @@ window.addEventListener("DOMContentLoaded", () => {
     toolList.appendChild(button);
   });
 
-  // دکمه خانه
   document.getElementById("home-link").addEventListener("click", e => {
     e.preventDefault();
     alert("فعلاً تو صفحه خانه هستی 🏠");
   });
 
-  // دکمه ابزارها
   document.getElementById("tools-link").addEventListener("click", e => {
     e.preventDefault();
     toolList.scrollIntoView({ behavior: "smooth" });
   });
 
-  // دکمه درباره ما
   document.getElementById("about-link").addEventListener("click", e => {
     e.preventDefault();
     alert("بخش درباره ما به‌زودی اضافه می‌شه 💬");
   });
 
-  // دکمه شروع آزمایشی
   document.getElementById("start-btn").addEventListener("click", () => {
     alert("آزمایش رایگان هنوز فعال نشده 😅 ولی تو اولین نفری هستی که دعوت می‌شی!");
   });
 
-  // دکمه اتصال به AI
   document.getElementById("ai-btn").addEventListener("click", () => {
     alert("در حال اتصال به هوش مصنوعی... آماده‌باش برای جادو! 🤖✨");
   });
-
 });
