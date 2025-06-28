@@ -1,5 +1,8 @@
 let currentLang = localStorage.getItem("selectedLanguage") || "fa";
-
+.then(data => {
+  alert("🎉 فایل lang.json با موفقیت لود شد!");
+  const translations = data[lang];
+  ... 
 function loadLanguage(lang) {
   fetch("lang.json")
     .then(res => res.json())
