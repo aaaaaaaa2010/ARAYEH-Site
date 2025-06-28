@@ -1,7 +1,7 @@
 let currentLang = localStorage.getItem("selectedLanguage") || "fa";
 
 function loadLanguage(lang) {
-  fetch("lang/lang.json")
+  fetch("lang.json")
     .then(res => res.json())
     .then(data => {
       const translations = data[lang];
