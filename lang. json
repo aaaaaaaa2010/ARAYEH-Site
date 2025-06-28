@@ -1,0 +1,20 @@
+{
+  "fa": {
+    "mainTitle": "به آرایه خوش اومدی!",
+    "toolsTitle": "ابزارهای ما",
+    "startBtn": "شروع آزمایشی",
+    "aboutLink": "درباره ما"
+  },
+  "en": {
+    "mainTitle": "Welcome to Arayeh!",
+    "toolsTitle": "Our Tools",
+    "startBtn": "Start Free Trial",
+    "aboutLink": "About Us"
+  },
+  "ar": {
+    "mainTitle": "مرحباً بك في أرايه!",
+    "toolsTitle": "أدواتنا",
+    "startBtn": "ابدأ التجربة",
+    "aboutLink": "من نحن"
+  }
+}
