@@ -118,3 +118,30 @@ window.onload = function () {
   // 🟢 لود زبان ذخیره شده
   loadLanguage(selectedLang);
 };
+let currentLang = localStorage.getItem("selectedLanguage") || "fa";
+
+function loadLanguage(lang) {
+  fetch("lang/lang.json")
+    .then(res => res.json())
+    .then(data => {
+      const translations = data[lang];
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[key]) {
+          el.textContent = translations[key];
+        }
+      });
+    });
+}
+
+document.querySelectorAll(".flag-btn").forEach(button => {
+  button.addEventListener("click", () => {
+    const selectedLang = button.getAttribute("data-lang");
+    localStorage.setItem("selectedLanguage", selectedLang);
+    loadLanguage(selectedLang);
+  });
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  loadLanguage(currentLang);
+});
