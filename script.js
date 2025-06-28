@@ -1,38 +1,69 @@
-let selectedLang = localStorage.getItem("language") || "fa";
+let currentLang = localStorage.getItem("selectedLanguage") || "fa";
 
-window.onload = function () {
-
-  function loadLanguage(langCode) {
-    fetch("lang.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const langData = data[langCode];
-        if (!langData) return;
-
-        document.getElementById("main-title").textContent = langData.mainTitle;
-        document.getElementById("tools-title").textContent = langData.toolsTitle;
-        document.getElementById("start-btn").textContent = langData.startBtn;
-        document.getElementById("about-link").textContent = langData.aboutLink;
-      });
+// 📦 داده ابزارها
+const tools = [
+  {
+    name: "مدیریت پروژه",
+    description: "این ابزار بهت کمک می‌کنه پروژه‌هاتو ساختاریافته و مرحله‌به‌مرحله پیش ببری."
+  },
+  {
+    name: "مولد ایده",
+    description: "با استفاده از الگوریتم‌های خلاق، بهت ایده‌های نو برای کسب‌وکار یا محتوا می‌ده."
+  },
+  {
+    name: "بررسی متن",
+    description: "متن‌هاتو از نظر نگارشی، لحن یا حرفه‌ای بودن بررسی می‌کنه."
   }
+];
 
-  alert("به سایت آرایه خوش اومدی! 🌸");
+// 🧠 تابع لود ترجمه
+function loadLanguage(lang) {
+  fetch("lang/lang.json")
+    .then(res => res.json())
+    .then(data => {
+      const translations = data[lang];
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[key]) {
+          el.textContent = translations[key];
+        }
+      });
+    });
+}
 
-  const tools = [
-    {
-      name: "مدیریت پروژه",
-      description: "این ابزار بهت کمک می‌کنه پروژه‌هاتو ساختاریافته و مرحله‌به‌مرحله پیش ببری."
-    },
-    {
-      name: "مولد ایده",
-      description: "با استفاده از الگوریتم‌های خلاق، بهت ایده‌های نو برای کسب‌وکار یا محتوا می‌ده."
-    },
-    {
-      name: "بررسی متن",
-      description: "متن‌هاتو از نظر نگارشی، لحن یا حرفه‌ای بودن بررسی می‌کنه."
-    }
-  ];
+// 📌 پس از بارگذاری صفحه:
+window.addEventListener("DOMContentLoaded", () => {
+  // لود ترجمه ذخیره‌شده
+  loadLanguage(currentLang);
 
+  // دکمه زبان
+  const langBtn = document.getElementById("lang-btn"); 
+  const langPopup = document.getElementById("lang-popup");
+
+  langBtn.addEventListener("click", () => {
+    langPopup.classList.remove("hidden");
+    setTimeout(() => langPopup.classList.add("show"), 10);
+  });
+
+  document.getElementById("lang-close-btn").addEventListener("click", () => {
+    langPopup.classList.remove("show");
+    setTimeout(() => langPopup.classList.add("hidden"), 300);
+  });
+
+  document.querySelectorAll(".flag-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const selected = btn.getAttribute("data-lang");
+      localStorage.setItem("selectedLanguage", selected);
+      loadLanguage(selected);
+    });
+  });
+
+  document.getElementById("lang-save-btn").addEventListener("click", () => {
+    langPopup.classList.remove("show");
+    setTimeout(() => langPopup.classList.add("hidden"), 300);
+  });
+
+  // ابزارها
   const toolList = document.getElementById("tool-list");
   const toolContent = document.getElementById("tool-content");
 
@@ -48,60 +79,20 @@ window.onload = function () {
     toolList.appendChild(button);
   });
 
-  // دکمه زبان
-  const langBtn = document.getElementById("lang-btn"); 
-  const langPopup = document.getElementById("lang-popup");
-
-  langBtn.addEventListener("click", () => {
-    langPopup.classList.remove("hidden");
-    setTimeout(() => {
-      langPopup.classList.add("show");
-    }, 10);
-  });
-
-  document.querySelectorAll(".flag-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      selectedLang = btn.textContent.trim();
-      alert("زبان انتخاب شد: " + selectedLang + " 🌍");
-    });
-  });
-
-  document.getElementById("lang-save-btn").addEventListener("click", () => {
-    if (selectedLang) {
-      localStorage.setItem("language", selectedLang);
-      loadLanguage(selectedLang);
-      alert("زبان ذخیره شد: " + selectedLang + " ✅");
-    } else {
-      alert("اول یه زبان انتخاب کن آجی 😅");
-    }
-
-    langPopup.classList.remove("show");
-    setTimeout(() => {
-      langPopup.classList.add("hidden");
-    }, 300);
-  });
-
-  document.getElementById("lang-close-btn").addEventListener("click", () => {
-    langPopup.classList.remove("show");
-    setTimeout(() => {
-      langPopup.classList.add("hidden");
-    }, 300);
-  });
-
   // دکمه خانه
-  document.getElementById("home-link").addEventListener("click", (e) => {
+  document.getElementById("home-link").addEventListener("click", e => {
     e.preventDefault();
     alert("فعلاً تو صفحه خانه هستی 🏠");
   });
 
   // دکمه ابزارها
-  document.getElementById("tools-link").addEventListener("click", (e) => {
+  document.getElementById("tools-link").addEventListener("click", e => {
     e.preventDefault();
-    document.getElementById("tool-list").scrollIntoView({ behavior: "smooth" });
+    toolList.scrollIntoView({ behavior: "smooth" });
   });
 
   // دکمه درباره ما
-  document.getElementById("about-link").addEventListener("click", (e) => {
+  document.getElementById("about-link").addEventListener("click", e => {
     e.preventDefault();
     alert("بخش درباره ما به‌زودی اضافه می‌شه 💬");
   });
@@ -111,37 +102,9 @@ window.onload = function () {
     alert("آزمایش رایگان هنوز فعال نشده 😅 ولی تو اولین نفری هستی که دعوت می‌شی!");
   });
 
+  // دکمه اتصال به AI
   document.getElementById("ai-btn").addEventListener("click", () => {
-    alert("در حال اتصال به هوش مصنوعی... آماده‌باش برای جادو! 🤖💫");
+    alert("در حال اتصال به هوش مصنوعی... آماده‌باش برای جادو! 🤖✨");
   });
 
-  // 🟢 لود زبان ذخیره شده
-  loadLanguage(selectedLang);
-};
-let currentLang = localStorage.getItem("selectedLanguage") || "fa";
-
-function loadLanguage(lang) {
-  fetch("lang/lang.json")
-    .then(res => res.json())
-    .then(data => {
-      const translations = data[lang];
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (translations[key]) {
-          el.textContent = translations[key];
-        }
-      });
-    });
-}
-
-document.querySelectorAll(".flag-btn").forEach(button => {
-  button.addEventListener("click", () => {
-    const selectedLang = button.getAttribute("data-lang");
-    localStorage.setItem("selectedLanguage", selectedLang);
-    loadLanguage(selectedLang);
-  });
-});
-
-window.addEventListener("DOMContentLoaded", () => {
-  loadLanguage(currentLang);
 });
