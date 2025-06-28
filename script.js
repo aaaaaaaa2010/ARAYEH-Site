@@ -99,7 +99,3 @@ window.addEventListener("DOMContentLoaded", () => {
     alert("در حال اتصال به هوش مصنوعی... آماده‌باش برای جادو! 🤖✨");
   });
 });
-.then(data => {
-  alert("🎉 فایل lang.json با موفقیت لود شد!");
-  const translations = data[lang];
-  ...
