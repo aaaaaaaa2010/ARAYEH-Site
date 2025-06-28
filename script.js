@@ -45,11 +45,18 @@ window.onload = function () {
 
   document.querySelectorAll(".flag-btn").forEach(btn => {
   btn.addEventListener("click", () => {
-    alert("زبان انتخاب شد: " + btn.textContent + " 🌍");
+    selectedLang = btn.textContent.trim(); // ذخیره زبان انتخابی
+    alert("زبان انتخاب شد: " + selectedLang + " 🌍");
   });
 });
 
   document.getElementById("lang-save-btn").addEventListener("click", () => {
+  if (selectedLang) {
+    alert("زبان ذخیره شد: " + selectedLang + " ✅");
+  } else {
+    alert("اول یه زبان انتخاب کن آجی 😅");
+  }
+
   langPopup.classList.remove("show");
   setTimeout(() => {
     langPopup.classList.add("hidden");
