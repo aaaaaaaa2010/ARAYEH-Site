@@ -1,8 +1,5 @@
 let currentLang = localStorage.getItem("selectedLanguage") || "fa";
-.then(data => {
-  alert("🎉 فایل lang.json با موفقیت لود شد!");
-  const translations = data[lang];
-  ... 
+
 function loadLanguage(lang) {
   fetch("lang.json")
     .then(res => res.json())
@@ -102,3 +99,7 @@ window.addEventListener("DOMContentLoaded", () => {
     alert("در حال اتصال به هوش مصنوعی... آماده‌باش برای جادو! 🤖✨");
   });
 });
+.then(data => {
+  alert("🎉 فایل lang.json با موفقیت لود شد!");
+  const translations = data[lang];
+  ...
