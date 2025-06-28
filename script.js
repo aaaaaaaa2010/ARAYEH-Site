@@ -1,4 +1,5 @@
 window.onload = function () {
+  let selectedLang = null;
   alert("به سایت آرایه خوش اومدی! 🌸");
 
   const tools = [
